@@ -31,9 +31,6 @@
 
 	let el;
 
-	console.log(statehex);
-	console.log(usaalbers);
-
 	let geojson;
 	let projection;
 
@@ -70,8 +67,6 @@
 	onMount(generateMap);
 
 	function generateMap() {
-
-		console.log(geojson.features)
 
 		let svg = d3.select(el).append("svg");
 
@@ -132,7 +127,6 @@
 
 		const legendContainer = d3.select(el).append("svg")
 			.attr("width", width-25)
-			.attr("height", 100)
 			.attr("class","legendContainer")
 
 		if (width > 600) {
@@ -141,8 +135,11 @@
 				.shapePadding((width-75)/5)
 				.labelWrap(130)
 
-			legendContainer.append("g")
+			legendContainer
+				.attr("height", 55)
+				.append("g")
 				.attr("transform", "translate(60,0)")
+
 				.call(legend)
 		} else {
 			legend
@@ -150,7 +147,9 @@
 				// .shapePadding((width-75)/5)
 				// .labelWrap(130)
 
-			legendContainer.append("g")
+			legendContainer
+				.attr("height", 100)
+				.append("g")
 				.attr("transform", "translate(" + ((width-300)/2) + ",0)")
 				.call(legend)
 		}

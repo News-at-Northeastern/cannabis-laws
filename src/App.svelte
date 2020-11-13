@@ -3,8 +3,6 @@
 	import MapUSA from './charts/MapUSA.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
-
-	// gather data set. the Rollup JSON plugin loads everything with key "default", hence the second line below. (also filtering to California only)
 	import * as dataset from '../public/datasets/laws.json'
 
 	export let width = Math.min(
@@ -18,7 +16,7 @@
 </style>
 
 <GraphicTitle
-	title={"Today's chart"}
+	title={"Cannabis laws in the United States after the 2020 elections"}
 	subhed={"A look at something etc"}
 />
 <MapUSA
@@ -26,7 +24,12 @@
 	data={dataset.default}
 	maptype={"hex"}
 />
+<!-- <MapUSA
+	width={width}
+	data={dataset.default}
+	maptype={"geo"}
+/> -->
 <GraphicFooter
 	source={"Marijuana Policy Project"}
-	note={"Data includes the top 100 cities by population in the US"}
+	note={""}
 />
